@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card memory</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <script defer src="./js/index.js"></script>
+</head>
+
+<body class="game_card_memory">
+  <header class="game_header">
+    <h1 class="game_name">
+      <i class="game_icon"></i>
+      Card Memory
+    </h1>
+    <h1 class="game_slogan">Juega y relaja tu mente</h1>
+    <figure class="game_toggle_theme">
+      <i class="fa-solid fa-moon icon_theme" title="Podrás cambiar el color al juego"></i>
+    </figure>
+  </header>
+
+  <ul class="game_buttons list">
+    
+    <li>
+      <i class="icon icon_img"></i>
+      <form class="list_form">
+        <select title="selector de tipo de imagen de juego" name="select" class="select_type_image"
+          name="select_type_image" id="select_type_image">
+          <option class="select_type_img_opcion option_none" value="none">
+            <i class="icon icon_type_image"></i> 
+            Tarjeta
+          </option>
+          <option class="select_type_img_opcion option_programming" value="programming">
+            <i class="icon icon_programming"></i>
+            Programación
+          </option>
+          <option class="select_type_img_opcion option_fruits" value="fruits">
+            <i class="icon icon_fruits"></i>
+            Frutas
+          </option>
+          <option class="select_type_img_opcion option_animals" value="animals">
+            <i class="icon icon_animals"></i>
+            Animales
+          </option>
+        </select>
+      </form>
+    </li>
+    <li>
+      <form class="list_form">
+        <i class="icon icon_dificulty"></i>
+        <select title="selector de tipo de dificultad" name="select" class="select_type_dificulty"
+          name="select_type_dificulty" id="select_type_dificulty">
+          <option class="select_type_dificulty_option option_none" value="none">
+            <i class="icon icon_difficult"></i>
+            Dificultad
+          </option>
+          <option class="select_type_dificulty_option option_easy" value="easy">
+            <i class="icon icon_easy"></i>
+            Facil
+          </option>
+          <option class="select_type_dificulty_option option_mediun" value="mediun">
+            <i class="icon icon_mediun"></i>
+            Media
+          </option>
+          <option class="select_type_dificulty_option option_difficult" value="difficult">
+            <i class="icon icon_difficult"></i>
+            Dificil
+          </option>
+        </select>
+      </form>
+    </li>
+    <li>
+      <button class="btn btn_init">
+        <i class="fa-solid fa-play icon_init"></i>
+        Iniciar
+      </button>
+    </li>
+  </ul>
+
+  <main class="game_container">
+
+    <section class="game_statistics">
+
+      <div class="container_info">
+        <div class="info info_points ">
+          <i class="fa-solid fa-circle-check icon_points"></i>
+          <p class="container_title">Puntos</p>
+        </div>
+        <span class="points">8</span>
+      </div>
+
+      <div class="container_info">
+        <div class="info info_time ">
+          <i class="fa-solid fa-hourglass-start icon_time"></i>
+          <p class="container_title">Tiempo</p>
+        </div>
+        <span class="time">20 segundos</span>
+      </div>
+
+      <div class="container_info">
+        <div class="info info_movements">
+          <i class="fa-solid fa-hand-pointer icon_movements"></i>
+          <p class="container_title">Movimientos</p>
+        </div>
+        <span class="movements">10</span>
+      </div>
+
+    </section>
+    <div class="game_cards">
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+  
+    </div>
+  </main>
+
+</body>
+
+</html>
