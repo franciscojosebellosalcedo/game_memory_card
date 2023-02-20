@@ -1,49 +1,55 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
 }
-:root{
-  --b:2px solid #000000; 
-  --sizeIcons:30px;
-  --shadowText:0px 0px 4px rgb(35, 10, 174);
+
+:root {
+  --b: 2px solid #000000;
+  --sizeIcons: 30px;
+  --shadowText: 0px 0px 4px rgb(35, 10, 174);
 }
-body{
+
+body {
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
-.game_header{
+
+.game_header {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 90px;
 }
-.game_name{
+
+.game_name {
   color: #ffffff;
   text-transform: uppercase;
-  font-size: 25px;
+  font-size: 30px;
   height: 100%;
   display: flex;
   align-items: center;
   text-shadow: var(--shadowText);
 }
-.game_icon{
-  width:70px;
-  height: 100%;
+
+.game_icon {
+  width: 70px;
+  height: 70px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
   background-image: url(../icons/cerebro.png);
 }
-.game_toggle_theme{
+
+.game_toggle_theme {
   width: 100px;
   height: 85%;
   font-size: var(--sizeIcons);
@@ -52,20 +58,22 @@ body{
   align-items: center;
   justify-content: center;
 }
-.icon_theme{
+
+.icon_theme {
   cursor: pointer;
 }
 
-.game_slogan{
-  text-shadow:var(--shadowText);
+.game_slogan {
+  text-shadow: var(--shadowText);
   color: #ffffff;
-  font-size:40px;
+  font-size: 30px;
   height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.game_buttons{
+
+.game_buttons {
   width: 90%;
   display: flex;
   align-items: center;
@@ -73,68 +81,84 @@ body{
   margin-top: 15px;
   margin-bottom: 20px;
 }
-.game_buttons> li{
+
+/* .game_buttons{
   flex-basis: 13%;
   height: 40px;
-}
-.list_form{
+} */
+
+.list_form {
   height: 100%;
 }
-.game_buttons >li > form >select,button{
-  width: 100%;
-  height: 100%;
-  display: block;
+
+select {
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 1px 3px 0px #000000;
+  text-shadow: var(--shadowText);
+}
+
+.btn {
+  height: 40px;
+  width: 120px;
+  border: none;
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 1px 1px 3px 0px #000000;
-  border: none;
   font-size: 20px;
-  display: flex;
-  align-items: center;
-  outline: none;
-  justify-content: space-around;
-}
-.select_type_image{
-  color: #ffffff;
-  text-align: center;
-  background:linear-gradient(rgba(255, 0, 0, 0.629),rgba(0, 0, 255, 0.485)) ;
-}
-.select_type_dificulty{
-  color: #ffffff;
-  text-align: center;
-  background: linear-gradient(rgba(255, 255, 0, 0.76),rgba(0, 128, 0, 0.85));
-}
-.btn_init{
-  color: #ffffff;
-  background: linear-gradient(rgba(0, 0, 255, 0.827),rgba(255, 255, 0, 0.787));
+  text-shadow: var(--shadowText);
 }
 
-.game_container{
-  height:80%;
+.select_type_image {
+  color: #ffffff;
+  background: linear-gradient(rgba(255, 0, 0, 0.629), rgba(0, 0, 255, 0.485));
+}
+
+.select_type_dificulty {
+  color: #ffffff;
+  background: linear-gradient(rgba(255, 255, 0, 0.76), rgba(0, 128, 0, 0.85));
+}
+
+.btn_init {
+  color: #ffffff;
+  background: linear-gradient(rgba(0, 0, 255, 0.827), rgba(255, 255, 0, 0.787));
+}
+
+.game_container {
+  height: 80%;
   width: 90%;
   margin-bottom: 6px;
   display: flex;
   justify-content: space-between;
 }
-.game_statistics{
+
+.game_statistics {
   flex-basis: 20%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
 }
-.container_info{
+
+.container_info {
   width: 100%;
   padding: 10px;
   height: 100px;
-  border: 2px solid black;
+  text-shadow: var(--shadowText);
   border-radius: 8px;
-  box-shadow: 1px 1px 3px 0px #ffffff;
+  box-shadow: 1px 1px 3px 0px #000000;
+
 }
-.game_statistics > .container_info{
-  background: linear-gradient(rgba(0, 0, 0, 0.538),rgba(0, 0, 255, 0.555));
+
+.game_statistics>.container_info {
+  background: linear-gradient(rgba(0, 0, 0, 0.538), rgba(0, 0, 255, 0.555));
 }
-.info{
+
+.info {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -143,25 +167,253 @@ body{
   color: #ffffff;
   text-shadow: var(--shadowText);
 }
-span{
+
+span {
   margin-top: 20px;
   text-align: center;
   display: block;
   font-size: 20px;
   color: #ffffff;
 }
-.game_cards{
-  flex-basis: 70%;
-  border: var(--b);
+
+.game_cards {
+  flex-basis: 75%;
+  border: .5px solid #000000;
+  padding: 3px;
   border-radius: 8px;
-  box-shadow: 1px 1px 4px 0px #ffffff;
+  box-shadow: 1px 1px 3px 0px #000000;
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  grid-template-rows: repeat(4,1fr);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 3px;
+}
+
+/* .level_easy {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.level_mediu {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+
+}
+
+.level_difficult {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+
+} */
+
+.game_cards>.card {
+  display: inline-block;
+  border-radius: 8px;
+
+}
+
+.card_btn {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card_btn >div{
+  backface-visibility: hidden;
+  transition: .2s;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px 0px #000000;
+}
+.face_front {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background:#ffffff71;
+  transform: perspective(500px) rotateY(0deg);
+}
+
+.face_back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: perspective(500px) rotateY(180deg);
+}
+.card_img{
+  width: 60%;
+  height: 65%;
+}
+
+.turn_around_face_front{
+  transform: perspective(500px) rotateY(180deg);
   
 }
-.game_cards > div{
-  border: 1px solid black;
-  border-radius: 8px;
+.turn_around_face_back{
+   transform: perspective(500px) rotateY(360deg);
+
+ }
+
+/*
+MEDIA QUERYS
+*/
+
+@media screen and (max-width:924px) {
+
+  select,
+  .btn {
+    font-size: 16px;
+  }
+
+  .info {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 20px;
+  }
+
+  .game_name,
+  .game_slogan {
+    font-size: 29px;
+  }
+
+}
+
+@media screen and (max-width:773px) {
+  .game_container {
+    flex-direction: column;
+  }
+
+  .game_statistics {
+    flex-direction: row;
+  }
+
+  .game_name,
+  .game_slogan {
+    font-size: 25px;
+  }
+
+  .container_info {
+    flex-basis: 20%;
+    height: 100%;
+  }
+
+  .game_buttons {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:721px) {
+
+  .game_name,
+  .game_slogan {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width:618px) {
+
+  .game_name,
+  .game_slogan {
+    font-size: 17px;
+  }
+
+  select,
+  .btn {
+    font-size: 14px;
+    height: 35px;
+  }
+
+  .info,
+  span {
+    font-size: 16px;
+  }
+
+}
+
+@media screen and (max-width:561px) {
+
+  .game_name,
+  .game_slogan {
+    font-size: 15px;
+  }
+
+  .game_name {
+    width: 120px;
+  }
+
+  .game_icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .game_toggle_theme {
+    width: 35px;
+    font-size: 25px;
+  }
+
+  select,
+  .btn {
+    font-size: 13px;
+    height: 30px;
+    width: 80px;
+  }
+
+  .info,
+  span {
+    font-size: 14px;
+  }
+
+  .container_info {
+    height: 70px;
+  }
+
+}
+
+@media screen and (max-width:371px) {
+  .game_slogan {
+    font-size: 13px;
+  }
+
+  .game_name {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .game_icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .container_info {
+    height: 70px;
+    width: 80px;
+  }
+
+  .game_slogan {
+    font-size: 15px;
+  }
+
+  .info {
+    font: 13px;
+    gap: 3px;
+  }
+
+  span {
+    font-size: 11px;
+  }
+
+  .game_toggle_theme {
+    width: 35px;
+    font-size: 20px;
+  }
 }
