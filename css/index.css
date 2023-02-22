@@ -247,8 +247,8 @@ span {
   transform: perspective(500px) rotateY(180deg);
 }
 .card_img{
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 55%;
 }
 
 .turn_around_face_front{
