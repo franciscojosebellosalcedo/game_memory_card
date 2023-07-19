@@ -24,14 +24,14 @@
   </header>
 
   <ul class="game_buttons list">
-    
+
     <li>
       <i class="icon icon_img"></i>
       <form class="list_form">
         <select title="selector de tipo de imagen de juego" name="select" class="select_type_image"
           name="select_type_image" id="select_type_image">
           <option class="select_type_img_opcion option_none" value="none">
-            <i class="icon icon_type_image"></i> 
+            <i class="icon icon_type_image"></i>
             Imagen
           </option>
           <option class="select_type_img_opcion option_programming" value="programming">
@@ -114,8 +114,19 @@
       </div>
 
     </section>
-    <div class="game_cards">
 
+    
+    
+    <div class="game_cards level_difficult">
+
+      <div class="card">
+        <button title="Tarjeta de juego" class="card_btn">
+          <div class="face_front"></div>
+          <div class="face_back">
+            <img class="card_img" src="./imgs/programing/img6.png" alt="imagen">
+          </div>
+        </button>
+      </div>
       <div class="card">
         <button title="Tarjeta de juego" class="card_btn">
           <div class="face_front"></div>
@@ -126,8 +137,18 @@
       </div>
 
     </div>
-    
+
   </main>
+  <section class="modal ">
+    <div class="modal_message">
+      <h1 class="modal_title">Mensaje</h1>
+      <p class="message">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea cupiditate eum repellat architecto
+        maiores unde!
+      </p>
+      <button class="modal__button__accep">Aceptar</button>
+    </div>
+  </section>
 
 </body>
 

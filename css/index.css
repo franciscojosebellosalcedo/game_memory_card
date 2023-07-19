@@ -188,7 +188,7 @@ span {
   gap: 3px;
 }
 
-/* .level_easy {
+.level_easy {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
 }
@@ -203,7 +203,48 @@ span {
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(6, 1fr);
 
-} */
+}
+
+.modal{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background-color:rgba(0, 0, 0, 0.33);
+  width: 100%;
+  height: 100%;
+}
+.modal_message{
+  background-color:white;
+  width: 30%;
+  position: relative;
+  height: 30%;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px 0px #000000;
+}
+
+.modal_title{
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 18px;
+}
+.message{
+  font-size: 20px;
+  text-align: center;
+}
+.modal__button__accep{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: linear-gradient(rgba(255, 0, 0, 0.629), rgba(0, 0, 255, 0.485));
+  padding:5px 10px;
+  border: none;
+  border-radius:8px;
+  color:white ;
+}
+
 
 .game_cards>.card {
   display: inline-block;
