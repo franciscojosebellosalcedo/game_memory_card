@@ -82,10 +82,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* .game_buttons{
-  flex-basis: 13%;
-  height: 40px;
-} */
 
 .list_form {
   height: 100%;
@@ -99,7 +95,6 @@ select {
   cursor: pointer;
   outline: none;
   box-shadow: 1px 1px 3px 0px #000000;
-  text-shadow: var(--shadowText);
 }
 
 .btn {
@@ -110,11 +105,10 @@ select {
   border-radius: 8px;
   box-shadow: 1px 1px 3px 0px #000000;
   font-size: 20px;
-  text-shadow: var(--shadowText);
 }
 
 .select_type_image {
-  color: black;
+  color:black;
   background: linear-gradient(rgba(255, 0, 0, 0.629), rgba(0, 0, 255, 0.485));
 }
 
