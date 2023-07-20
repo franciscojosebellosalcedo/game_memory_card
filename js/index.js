@@ -19,10 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     movements = 0,
     aux = 0,
     points = 0,
-    time = null,
+    maxPoints = 0,
+    time = 0,
     timeReady = 3;
 
-  const modalError = document.querySelector(".modal");
+  let arrayCardSelected = [];
+  let arrayIndex = [];
+
+  let intervalTimeGame=null;
+  let intervalTimeReady=null;
+
+  const modal= document.querySelector(".modal");
   const modalReady = document.querySelector(".modal__ready");
   const modalClose = document.querySelector(".modal__close-icon");
   const containerCards = document.querySelector(".game_cards");
@@ -66,41 +73,71 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initGame() {
+    if(selectImage.value !="none"){
+      setImageCard(selectImage.value);
+    }else{
+      messageModal.innerHTML=messages.validation.validationSelectImage;
+      openModal(modal);
+    }
     const responseValidation = validateValuesInitials();
     if (
       responseValidation.result === false &&
       responseValidation.select === "selectImage"
     ) {
       messageModal.innerText = messages.validation.validationSelectImage;
-      openModal(modalError);
+      openModal(modal);
     } else if (
       responseValidation.result === false &&
       responseValidation.select === "selectDificulty"
     ) {
       messageModal.innerText = messages.validation.validationSelectDificulty;
-      openModal(modalError);
+      openModal(modal);
     } else {
       selectDificulty.setAttribute("disabled", true);
       selectImage.setAttribute("disabled", true);
       btnInitGame.setAttribute("disabled", true);
       openModal(modalReady);
-      setInterval(() => {
-        timeReady = timeReady - 1;
+
+      intervalTimeReady=setInterval(() => {
         if (timeReady === 0) {
+          clearInterval(intervalTimeReady);
           closeModal(modalReady);
           for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
             card.removeAttribute("disabled");
           }
-          setInterval(() => {
+          intervalTimeGame =setInterval(() => {
             time = time - 1;
-            // AQUI DEBE DE TERMINAR TODO EL JUEGO
+            if (time===0) {
+              messageModal.innerHTML="Perdiste";
+              openModal(modal);
+              resetGame();
+            }
             nodeTime.innerHTML = time + " segundo";
           }, 1000);
         }
         messageModalready.innerHTML = timeReady;
+        timeReady = timeReady - 1;
       }, 1000);
     }
+  }
+
+  function resetGame() {
+    clearInterval(intervalTimeGame);
+    clearInterval(intervalTimeReady);
+    points = 0;
+    time = 0;
+    timeReady=3;
+    movements = 0;
+    nodePoints.innerHTML = points;
+    nodeTime.innerHTML = "";
+    nodeMovements.innerHTML = movements;
+    containerCards.innerHTML = "";
+    selectDificulty.removeAttribute("disabled");
+    selectImage.removeAttribute("disabled");
+    btnInitGame.removeAttribute("disabled");
+    selectDificulty.selectedIndex=0;
+    selectImage.selectedIndex=0;
   }
 
   btnInitGame.addEventListener("click", () => initGame());
@@ -138,9 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     faceFrontCards = faceFrontCardAll;
     disableCards(cards);
 
-    let arrayCardSelected = [];
-    let arrayIndex = [];
-
     cards.map((btnCard, i) => {
       btnCard.addEventListener("click", (e) => {
         faceFrontCards[i].classList.add("turn_around_face_front");
@@ -156,38 +190,54 @@ document.addEventListener("DOMContentLoaded", () => {
           updateMovements();
           aux = 0;
 
-          if (arrayCardSelected[0].dataset.id === arrayCardSelected[1].dataset.id) {
-            faceFrontCards[arrayIndex[0]].classList.add("turn_around_face_front");
+          if (
+            arrayCardSelected[0].dataset.id === arrayCardSelected[1].dataset.id
+          ) {
+            faceFrontCards[arrayIndex[0]].classList.add(
+              "turn_around_face_front"
+            );
             faceBackCards[arrayIndex[0]].classList.add("turn_around_face_back");
-  
-            faceFrontCards[arrayIndex[1]].classList.add("turn_around_face_front");
+
+            faceFrontCards[arrayIndex[1]].classList.add(
+              "turn_around_face_front"
+            );
             faceBackCards[arrayIndex[1]].classList.add("turn_around_face_back");
             updatePoints();
-            arrayIndex=[];
-          }else{
-            if (arrayIndex.length>1) {
-              setTimeout(async()=>{
-                
-              faceFrontCards[arrayIndex[0]].classList.remove("turn_around_face_front");
-              faceBackCards[arrayIndex[0]].classList.remove("turn_around_face_back");
-  
-              faceFrontCards[arrayIndex[1]].classList.remove("turn_around_face_front");
-              faceBackCards[arrayIndex[1]].classList.remove("turn_around_face_back");
-              arrayIndex=[];
-            },150);
+
+            if (points === maxPoints) {
+              messageModal.innerHTML="Felicitaciones";
+              openModal(modal);
+              resetGame();
+            }
+
+            arrayIndex = [];
+          } else {
+            if (arrayIndex.length > 1) {
+              setTimeout(() => {
+                faceFrontCards[arrayIndex[0]].classList.remove(
+                  "turn_around_face_front"
+                );
+                faceBackCards[arrayIndex[0]].classList.remove(
+                  "turn_around_face_back"
+                );
+
+                faceFrontCards[arrayIndex[1]].classList.remove(
+                  "turn_around_face_front"
+                );
+                faceBackCards[arrayIndex[1]].classList.remove(
+                  "turn_around_face_back"
+                );
+                arrayIndex = [];
+              }, 150);
             }
 
             for (let j = 0; j < arrayCardSelected.length; j++) {
               const cardSelected = arrayCardSelected[j];
               cardSelected.removeAttribute("disabled");
             }
-            
           }
-          
-          arrayCardSelected=[];
-          
+          arrayCardSelected = [];
         }
-
       });
     });
   }
@@ -200,7 +250,8 @@ document.addEventListener("DOMContentLoaded", () => {
         containerCards.classList.remove("level_difficult");
         containerCards.classList.add("level_easy");
         createCard(10);
-        time = 20;
+        time = 35;
+        maxPoints = 10;
         break;
 
       case "mediun":
@@ -208,7 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
         containerCards.classList.remove("level_difficult");
         containerCards.classList.add("level_mediu");
         createCard(15);
-        time = 25;
+        time = 45;
+        maxPoints = 15;
+
         break;
 
       case "difficult":
@@ -216,7 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
         containerCards.classList.remove("level_mediu");
         containerCards.classList.add("level_difficult");
         createCard(24);
-        time = 30;
+        time = 65;
+        maxPoints = 24;
         break;
 
       default:
@@ -270,5 +324,5 @@ document.addEventListener("DOMContentLoaded", () => {
     nodeModal.classList.remove("see__modal");
   }
 
-  modalClose.addEventListener("click", () => closeModal(modalError));
+  modalClose.addEventListener("click", () => closeModal(modal));
 });
