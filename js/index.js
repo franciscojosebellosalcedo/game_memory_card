@@ -99,7 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal(modalReady);
 
       intervalTimeReady=setInterval(() => {
+        messageModalready.innerHTML = timeReady;
         if (timeReady === 0) {
+          timeReady=3;
+          messageModalready.innerHTML=timeReady;
           clearInterval(intervalTimeReady);
           closeModal(modalReady);
           for (let i = 0; i < cards.length; i++) {
@@ -116,8 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             nodeTime.innerHTML = time + " segundo";
           }, 1000);
         }
-        messageModalready.innerHTML = timeReady;
-        timeReady = timeReady - 1;
+        timeReady--;
       }, 1000);
     }
   }

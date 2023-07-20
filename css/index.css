@@ -114,17 +114,18 @@ select {
 }
 
 .select_type_image {
-  color: #ffffff;
+  color: black;
   background: linear-gradient(rgba(255, 0, 0, 0.629), rgba(0, 0, 255, 0.485));
 }
 
+
 .select_type_dificulty {
-  color: #ffffff;
+  color: black;
   background: linear-gradient(rgba(255, 255, 0, 0.76), rgba(0, 128, 0, 0.85));
 }
 
 .btn_init {
-  color: #ffffff;
+  color: black;
   background: linear-gradient(rgba(0, 0, 255, 0.827), rgba(255, 255, 0, 0.787));
 }
 
